@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Business</title>
+    <title>Meta Tags Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header>
+        <a class="btn btn-warning m-2" href="index.html">Back to home</a>
     <h1>Header</h1>
 </header>
     <main>
@@ -24,33 +25,48 @@
                             <br /><button type="button" onclick="gen()">GENERATE</button>
                      </form>
                 </div>
-
                 <div class="col-md-4">
-                        <h6>Pages</h6>
-                    <span style="height: 100%; word-wrap: break-word;" id="output" class="form-control"></span>
+                    <h6>Pages</h6>
+                    <span style="height: 100%; word-wrap: break-word;" id="output" class="form-control"></span><br>
                 </div>
                 <div class="col-md-4">
-                        <h6>Learn More</h6>
-                        <span style="height: 100%; word-wrap: break-word;" id="output2" class="form-control"></span>
-                    </div>
+                    <h6>Learn More</h6>
+                    <span style="height: 100%; word-wrap: break-word;" id="output2" class="form-control"></span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col">
+                    <form >
+                        <h6>Enter Phrases Here</h6>
+                        <textarea class="form-control" id="input2" rows="3"></textarea>
+                        <br />
+                        <select name="case" id="case">
+                            <option value="default">Case Select</option>
+                            <option value="lwrCase">To lower case</option>
+                            <option value="uprCase">To upper case</option>
+                            <option value="stnCase">To sentence case</option>
+                        </select>
+                        <br/>
+                        <button type="button" onclick="cnvrt()" class="btn btn-success mt-3">CONVERT</button>
+                    </form>
+                </div>
+                <div class="col-8">
+                    <h6>Result</h6>
+                    <span style="height: 100%; word-wrap: break-word;" id="lowercase" class="form-control"></span>
+                </div>
             </div>
         </div>
 
-        
-
-
-
-
-
-
-
-
-
-        <p style="margin-top: 10%">temp</p>
     </main>
-<footer>
+
+    
+<footer class="fixed-bottom">
     <h1>footer</h1>
 </footer>
+
     
 
 <!-- JavaScript -->

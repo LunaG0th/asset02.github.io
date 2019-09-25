@@ -9,7 +9,7 @@ function gen () {
     let  output2 = document.querySelector('#output2');
     let newElement2 = document.createElement("p");
     
-    
+// pages
     data.forEach((item) => {
         if (input.value != '') {
                 item = item.toLowerCase();
@@ -19,7 +19,7 @@ function gen () {
         }
     });
 
-
+//learn more
     data2.forEach((item2) => {
         if (input2.value != '') {
             newElement2.append(` ${item2}, `);
