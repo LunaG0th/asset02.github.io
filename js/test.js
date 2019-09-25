@@ -3,6 +3,7 @@ function gen () {
     let  input2 = document.querySelector('#input2');
     let data = input.value.replace(/\r\n/g,"\n").split("\n")
     let data2 = input2.value.replace(/\r\n/g,"\n").split("\n")
+    
     let  output = document.querySelector('#output');
     let  output2 = document.querySelector('#output2');
     let newElement = document.createElement("p");
@@ -15,18 +16,22 @@ function gen () {
                 output.appendChild(newElement)
                 newElement.appendChild(document.createElement("br"))
         }
-
-    });
-    data2.forEach((item2) => {
         if (input2.value != '') {
-            item2 = item2.toLowerCase();
-            newElement2.append(`<meta name="keyword" content="${item2},"/>`);
+            
+            newElement2.append(`<meta name="keyword" content=" ${j},  \n "/>`);
             output2.appendChild(newElement2)
-            // newElement2.appendChild(document.createElement("br"))
         }
-
     });
- 
 
-    }
+}
 
+// select all text on click
+// data2.forEach((item2) => {
+//     if (input2.value != '') {
+//         item2 = item2.toLowerCase();
+//         newElement2.append(`<meta name="keyword" content="${item2},"/>`);
+//         output2.appendChild(newElement2)
+//         // newElement2.appendChild(document.createElement("br"))
+//     }
+
+// });
