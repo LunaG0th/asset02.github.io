@@ -14,26 +14,32 @@
     <h1>Header</h1>
 </header>
     <main>
-        <div class="container">
+        <div class="container"><!-- learn more -->
             <div class="row">
-                <div class="col">
+                <div class="col-4">
                     <form >
-                        <h6>Pages</h6>
-                        <textarea class="form-control" id="input" rows="3"></textarea> <br>
-                        <h6>Lear More</h6>
+                        <h6>Learn More</h6>
                         <textarea class="form-control" id="input2" rows="3"></textarea>
-                            <br /><button type="button" onclick="gen()">GENERATE</button>
+                        <h6>Pages</h6>
+                        <textarea class="form-control" id="input" rows="3"></textarea>
+                        <br /><button type="button" onclick="gen()">GENERATE</button>
                      </form>
                 </div>
-                <div class="col-md-4">
-                    <h6>Pages</h6>
-                    <span style="height: 100%; word-wrap: break-word;" id="output" class="form-control"></span><br>
-                </div>
-                <div class="col-md-4">
+                <div class="col-8">
                     <h6>Learn More</h6>
-                    <span style="height: 100%; word-wrap: break-word;" id="output2" class="form-control"></span>
+                    <span style="height: 100%; word-wrap: break-word;" id="output2" class="form-control"></span><br>
                 </div>
             </div>
+        </div><!-- end of learn more -->
+
+        <br>
+        <div class="container mt-3"><!-- pages-->
+                <div class="row">
+                    <div class="col-8 offset-4">
+                        <h6>Pages</h6>
+                        <span style="height: 100%; word-wrap: break-word;" id="output" class="form-control" ></span><br>
+                    </div>
+                </div>
         </div>
         <br>
         <div class="container mt-3">
@@ -41,7 +47,7 @@
                 <div class="col">
                     <form >
                         <h6>Enter Phrases Here</h6>
-                        <textarea class="form-control" id="input2" rows="3"></textarea>
+                        <textarea class="form-control" id="input" rows="3"></textarea>
                         <br />
                         <select name="case" id="case">
                             <option value="default">Case Select</option>
