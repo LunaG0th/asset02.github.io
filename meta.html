@@ -14,62 +14,68 @@
     <h1>Header</h1>
 </header>
     <main>
-        <div class="container"><!-- learn more -->
+        <div class="container">
             <div class="row">
                 <div class="col-4">
                     <form >
-                        <h6>Learn More</h6>
-                        <textarea class="form-control" id="input2" rows="3"></textarea>
                         <h6>Pages</h6>
-                        <textarea class="form-control" id="input" rows="3"></textarea>
-                        <br /><button type="button" onclick="gen()">GENERATE</button>
+                        <textarea class="form-control" id="input" rows="4" placeholder="Don't include Home and Learn More page here!! "></textarea>
+                    </br>
+                        <h6>Learn More</h6>
+                        <textarea class="form-control" id="input2" rows="4" placeholder="Paste keywords here!!"></textarea>
+                        <br /><button type="button" class="btn btn-success mt-3" onclick="gen()" id="btnrmv01">GENERATE</button> <button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem2()">CLEAR ITEM</button>
                      </form>
                 </div>
                 <div class="col-8">
-                    <h6>Learn More</h6>
-                    <span style="height: 100%; word-wrap: break-word;" id="output2" class="form-control"></span><br>
+                    <h6>Pages</h6>
+                    <span style="height: 100%; word-wrap: break-word;" id="output" class="form-control"></span><br>
                 </div>
             </div>
-        </div><!-- end of learn more -->
+        </div>
 
         <br>
-        <div class="container mt-3"><!-- pages-->
+        <div class="container mt-3">
                 <div class="row">
                     <div class="col-8 offset-4">
-                        <h6>Pages</h6>
-                        <span style="height: 100%; word-wrap: break-word;" id="output" class="form-control" ></span><br>
+                        <h6>Learn More</h6>
+                        <span style="height: 100%; word-wrap: break-word;" id="output2" class="form-control" ></span><br>
                     </div>
                 </div>
         </div>
         <br>
+        <!-- case converter -->
         <div class="container mt-3">
             <div class="row">
                 <div class="col">
                     <form >
                         <h6>Enter Phrases Here</h6>
-                        <textarea class="form-control" id="input" rows="3"></textarea>
+                        <textarea class="form-control" id="key" rows="3"></textarea>
                         <br />
-                        <select name="case" id="case">
+                        <select name="optn" id="optn">
                             <option value="default">Case Select</option>
                             <option value="lwrCase">To lower case</option>
                             <option value="uprCase">To upper case</option>
                             <option value="stnCase">To sentence case</option>
                         </select>
                         <br/>
-                        <button type="button" onclick="cnvrt()" class="btn btn-success mt-3">CONVERT</button>
+                        <button type="button"  class="btn btn-success mt-3" onclick="cnvrt()">CONVERT</button><button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem()" id="btnrmv02">CLEAR ITEM</button>
                     </form>
                 </div>
                 <div class="col-8">
                     <h6>Result</h6>
-                    <span style="height: 100%; word-wrap: break-word;" id="lowercase" class="form-control"></span>
+                    <span style="height: 100%; word-wrap: break-word;" id="outputKey" class="form-control"></span>
+                    <br>
+                   
                 </div>
+               
             </div>
         </div>
-
+        
     </main>
-
     
-<footer class="fixed-bottom">
+
+    <hr class="mt-5">
+<footer class=" mt-3">
     <h1>footer</h1>
 </footer>
 
