@@ -42,6 +42,7 @@ function gen () {
 function cnvrt () {
     let inputKey = document.querySelector('#key');
     let keyArr = key.value.replace(/\r\n/g,"\n").split("\n");
+    // console.log(keyArr);
     let outputKey = document.querySelector('#outputKey');
     let = newElem = document.createElement("p");
     let caseSelect = document.querySelector('#optn').value
@@ -63,7 +64,20 @@ function cnvrt () {
             newElem.appendChild(document.createElement("br"))
             newElem.setAttribute('id', 'phrse')
         });
+    } else if (caseSelect == "tleCase") {
+            keyArr.forEach((str) => {
+               let words = str = str.toLowerCase().split(" ");
+                for (let i = 0; i < words.length; i++) {
+                    words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+                }
+                
+                newElem.append(words.join(" "));
+                outputKey.appendChild(newElem);
+                newElem.appendChild(document.createElement("br"))
+                newElem.setAttribute('id', 'phrse')
+            });
     }
+
 
 }
 function clearItem () {
@@ -74,3 +88,13 @@ function clearItem2 () {
     let toRemov = document.querySelector('.phrse2')
     toRemov.parentNode.removeChild(toRemov);
 }
+
+
+// function titlCase(str){
+//     str = str.toLowerCase().split(' ');
+//     let final = [ ];
+//         for(let  word of str){
+//         final.push(word.charAt(0).toUpperCase()+ word.slice(1));
+//         }
+//     return final.join(' ')
+//     }
