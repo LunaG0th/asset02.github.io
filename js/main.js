@@ -38,7 +38,7 @@ function gen () {
     let fnme = document.querySelector('#fnme').value;
     let emal = document.querySelector('#emal').value;
     let phn = document.querySelector('#phn').value;
-    let wbste = document.querySelector('#wbste').value;
+    // let wbste = document.querySelector('#wbste').value;
     
 
     let run = true;
@@ -54,7 +54,7 @@ function gen () {
 
                 let str = bsn
                 let emal2 = emal.toLowerCase()
-                let wbste2 = wbste.toLowerCase()
+                // let wbste2 = wbste.toLowerCase()
                 let ste2 = ste.toUpperCase()
                 let hypen = str.toLowerCase().trim().split(/\s+/).join('-'); // add hypen between each word
 
@@ -173,7 +173,7 @@ function gen () {
                 document.querySelector('#name').innerHTML = titleCase(`${fnme}`)
                 document.querySelector('#email').innerHTML = `${emal2}`
                 document.querySelector('#phone').innerHTML = `${phn}`
-                document.querySelector('#site').innerHTML = `${wbste2}`
+                // document.querySelector('#site').innerHTML = `${wbste2}`
 
 
             }
