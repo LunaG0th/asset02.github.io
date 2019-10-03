@@ -13,7 +13,7 @@ function gen () {
     data.forEach((item) => {
         if (input.value != '') {
                 item = item.toLowerCase();
-                newElement.append(`<meta name="keyword" content="${item}"/>`);
+                newElement.append(`<meta name="keywords" content="${item}"/>`);
                 output.appendChild(newElement)
                 newElement.appendChild(document.createElement("br"))
                 newElement.setAttribute('class', 'phrse2')
@@ -24,15 +24,15 @@ function gen () {
     data2.forEach((item2) => {
         if (input2.value != '') {
             item2 = item2.toLowerCase();
-            newElement2.append(` ${item2}, `);
+            newElement2.append(` ${item2},`);
             output2.appendChild(newElement2);
             
         }
         
     });
 
-    newElement2.prepend('<meta name="keyword" content="');
-    newElement2.append(' "/>');
+    newElement2.prepend('<meta name="keywords" content="');
+    newElement2.append('"/>');
     newElement2.setAttribute('class', 'phrse2')
 
 }
