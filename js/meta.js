@@ -1,39 +1,43 @@
 function gen () {
+// pages
     let  input = document.querySelector('#input');
-    let  data = input.value.replace(/\r\n/g,"\n").split("\n")
+    let  data = input.value.replace(/\r\n/g,"\n").split("\n");
     let  output = document.querySelector('#output');
     let  newElement = document.createElement("p");
 
-    let  input2 = document.querySelector('#input2');
-    let  data2 = input2.value.replace(/\r\n/g,"\n").split("\n")
-    let  output2 = document.querySelector('#output2');
-    let  newElement2 = document.createElement("p");
-    
-// pages
-    data.forEach((item) => {
-        if (input.value != '') {
-                item = item.toLowerCase();
-                newElement.append(`<meta name="keywords" content="${item}"/>`);
-                output.appendChild(newElement)
-                newElement.appendChild(document.createElement("br"))
-                newElement.setAttribute('class', 'phrse2')
-        }
-    });
+    // data.forEach((item) => {
+    //     if (input.value != '') {
+    //             item = item.toLowerCase();
+    //             newElement.append(`<meta name="keywords" content="${item}"/>`);
+    //             output.appendChild(newElement)
+    //             newElement.appendChild(document.createElement("br"))
+    //             newElement.setAttribute('class', 'phrse2')
+    //             console.log(newElement)
+    //     }
+    // });
+
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i].toLowerCase();
+            newElement.append(item);
+            output.appendChild(newElement)
+            newElement.appendChild(document.createElement("br"))
+            newElement.setAttribute('class', 'phrse2')
+            console.log(newElement)
+    }
 
 //learn more
-    data2.forEach((item2) => {
-        if (input2.value != '') {
-            item2 = item2.toLowerCase();
-            newElement2.append(` ${item2},`);
-            output2.appendChild(newElement2);
-            
-        }
-        
-    });
-
+if (input2.value != '') {
+    let  input2 = document.querySelector('#input2');
+    let  data2 = input2.value.replace(/(\r\n|\n|\r)/gm,", ").split("\n");
+    let  output2 = document.querySelector('#output2');
+    let  newElement2 = document.createElement("p");
+        newElement2.append(data2)
+        output2.appendChild(newElement2);
+    
     newElement2.prepend('<meta name="keywords" content="');
     newElement2.append('"/>');
     newElement2.setAttribute('class', 'phrse2')
+    }
 
 }
 // ==================================================
