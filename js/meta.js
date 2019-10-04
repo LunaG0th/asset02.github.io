@@ -14,7 +14,13 @@ function gen () {
         }
     });
     let child = newElement.childNodes
-    console.log(child)
+        child.forEach(function (item, index) {
+            item= item.setAttributes({
+                "id": "pr" + `${index}`,
+                "onClick": "selectAll(this.id)"
+            });
+        });
+    
     // newElement.firstChild.setAttribute('class', 'pClass') 
 
 //learn more
@@ -36,27 +42,12 @@ if (input2.value != '') {
         "id": "learnmore",
         "class": "pages",
         "onClick": "selectAll(this.id)"
-    });
-    
-    
+    });    
     }
-
-    // newElement2.prepend('<meta name="keywords" content="');
-    // newElement2.append('"/>');
-    // newElement2.setAttribute('id', 'learnMore');
-    // newElement2.setAttribute('onClick', 'selectAll(this.id)');
-    
-    // }
 }
 
-// function SelectAll(id)
-// {
-//     document.getElementById(id).focus();
-//     document.getElementById(id).select();
-// }
 // ==================================================
-
-// case converter
+    // case converter
 function cnvrt () {
     let inputKey = document.querySelector('#key');
     let keyArr = key.value.replace(/\r\n/g,"\n").split("\n");
@@ -97,9 +88,9 @@ function cnvrt () {
                 
             });
     }
-
-
 }
+// ====================================
+     // clear button
 function clearItem () {
             let toRemov = document.querySelector('.pages')
             toRemov.parentNode.removeChild(toRemov);
@@ -108,8 +99,6 @@ function clearItem2 () {
     let toRemov = document.querySelector('.phrse')
     toRemov.parentNode.removeChild(toRemov);
 }
-
-
    //=====================================
         // select all text on click
         function selectAll(id){
