@@ -3,27 +3,19 @@ function gen () {
     let  input = document.querySelector('#input');
     let  data = input.value.replace(/\r\n/g,"\n").split("\n");
     let  output = document.querySelector('#output');
-    let  newElement = document.createElement("p");
+    let  newElement = document.createElement("div");
 
-    // data.forEach((item) => {
-    //     if (input.value != '') {
-    //             item = item.toLowerCase();
-    //             newElement.append(`<meta name="keywords" content="${item}"/>`);
-    //             output.appendChild(newElement)
-    //             newElement.appendChild(document.createElement("br"))
-    //             newElement.setAttribute('class', 'phrse2')
-    //             console.log(newElement)
-    //     }
-    // });
-
-    for (let i = 0; i < data.length; i++) {
-        const item = data[i].toLowerCase();
-            newElement.append(item);
-            output.appendChild(newElement)
-            newElement.appendChild(document.createElement("br"))
-            newElement.setAttribute('class', 'phrse2')
-            console.log(newElement)
-    }
+    data.forEach((item) => {
+        if (input.value != '') {
+                item = item.toLowerCase();
+                newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item}"/>`)
+                output.appendChild(newElement)
+                newElement.setAttribute('class', 'pages')         
+        }
+    });
+    let child = newElement.childNodes
+    console.log(child)
+    // newElement.firstChild.setAttribute('class', 'pClass') 
 
 //learn more
 if (input2.value != '') {
@@ -31,15 +23,37 @@ if (input2.value != '') {
     let  data2 = input2.value.replace(/(\r\n|\n|\r)/gm,", ").split("\n");
     let  output2 = document.querySelector('#output2');
     let  newElement2 = document.createElement("p");
-        newElement2.append(data2)
+    data2.forEach((item) => {
+        item = item.toLowerCase();
+        newElement2.append(item)
         output2.appendChild(newElement2);
+    });
+        
     
     newElement2.prepend('<meta name="keywords" content="');
     newElement2.append('"/>');
-    newElement2.setAttribute('class', 'phrse2')
+    newElement2.setAttributes({
+        "id": "learnmore",
+        "class": "pages",
+        "onClick": "selectAll(this.id)"
+    });
+    
+    
     }
 
+    // newElement2.prepend('<meta name="keywords" content="');
+    // newElement2.append('"/>');
+    // newElement2.setAttribute('id', 'learnMore');
+    // newElement2.setAttribute('onClick', 'selectAll(this.id)');
+    
+    // }
 }
+
+// function SelectAll(id)
+// {
+//     document.getElementById(id).focus();
+//     document.getElementById(id).select();
+// }
 // ==================================================
 
 // case converter
@@ -57,7 +71,8 @@ function cnvrt () {
             newElem.append(`${str} `);
             outputKey.appendChild(newElem);
             newElem.appendChild(document.createElement("br"))
-            newElem.setAttribute('id', 'phrse')
+            newElem.setAttribute('class', 'phrse')
+            
         });
 
     } else if (caseSelect == "uprCase") {
@@ -66,7 +81,7 @@ function cnvrt () {
             newElem.append(`${str} `);
             outputKey.appendChild(newElem);
             newElem.appendChild(document.createElement("br"))
-            newElem.setAttribute('id', 'phrse')
+            newElem.setAttribute('class', 'phrse')
         });
     } else if (caseSelect == "tleCase") {
             keyArr.forEach((str) => {
@@ -78,27 +93,56 @@ function cnvrt () {
                 newElem.append(words.join(" "));
                 outputKey.appendChild(newElem);
                 newElem.appendChild(document.createElement("br"))
-                newElem.setAttribute('id', 'phrse')
+                newElem.setAttribute('class', 'phrse')
+                
             });
     }
 
 
 }
 function clearItem () {
-            let toRemov = document.querySelector('#phrse')
+            let toRemov = document.querySelector('.pages')
             toRemov.parentNode.removeChild(toRemov);
 }
 function clearItem2 () {
-    let toRemov = document.querySelector('.phrse2')
+    let toRemov = document.querySelector('.phrse')
     toRemov.parentNode.removeChild(toRemov);
 }
 
 
-// function titlCase(str){
-//     str = str.toLowerCase().split(' ');
-//     let final = [ ];
-//         for(let  word of str){
-//         final.push(word.charAt(0).toUpperCase()+ word.slice(1));
-//         }
-//     return final.join(' ')
-//     }
+   //=====================================
+        // select all text on click
+        function selectAll(id){
+            let sel, range;
+            let el = document.getElementById(id); //get element id
+            if (window.getSelection && document.createRange) { //Browser compatibility
+              sel = window.getSelection();
+              if(sel.toString() == ''){ //no text selection
+                 window.setTimeout(function(){
+                    range = document.createRange(); //range object
+                    range.selectNodeContents(el); //sets Range
+                    sel.removeAllRanges(); //remove all ranges from selection
+                    sel.addRange(range);//add Range to a Selection.
+                },1);
+              }
+            }else if (document.selection) { //older ie
+                sel = document.selection.createRange();
+                if(sel.text == ''){ //no text selection
+                    range = document.body.createTextRange();//Creates TextRange object
+                    range.moveToElementText(el);//sets Range
+                    range.select(); //make selection.
+                }
+            }
+        }
+        // Element prototype
+        Element.prototype.setAttributes = function (attrs) {
+            for (var idx in attrs) {
+                if ((idx === 'styles' || idx === 'style') && typeof attrs[idx] === 'object') {
+                    for (var prop in attrs[idx]){this.style[prop] = attrs[idx][prop];}
+                } else if (idx === 'html') {
+                    this.innerHTML = attrs[idx];
+                } else {
+                    this.setAttribute(idx, attrs[idx]);
+                }
+            }
+        };

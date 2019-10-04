@@ -28,4 +28,8 @@ main div.select {
   display: none;
 }
 
+p {
+  margin-bottom: 0;
+}
+
 /*# sourceMappingURL=style.css.map */
