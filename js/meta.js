@@ -21,8 +21,6 @@ function gen () {
             });
         });
     
-    // newElement.firstChild.setAttribute('class', 'pClass') 
-
 //learn more
 if (input2.value != '') {
     let  input2 = document.querySelector('#input2');
@@ -100,7 +98,7 @@ function clearItem2 () {
     toRemov.parentNode.removeChild(toRemov);
 }
    //=====================================
-        // select all text on click
+     // select all text on click
         function selectAll(id){
             let sel, range;
             let el = document.getElementById(id); //get element id
@@ -123,7 +121,8 @@ function clearItem2 () {
                 }
             }
         }
-        // Element prototype
+//==========================================
+    // Element prototype
         Element.prototype.setAttributes = function (attrs) {
             for (var idx in attrs) {
                 if ((idx === 'styles' || idx === 'style') && typeof attrs[idx] === 'object') {
