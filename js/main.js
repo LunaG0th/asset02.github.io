@@ -75,7 +75,7 @@ function genKey () {
         });
         getTag.appendChild(newTag)
         newTag.setAttribute('class', 'pages')
-    } //end of if condition  
+    }//end of if condition  
 }
 //============================================
 // character counter
@@ -96,14 +96,15 @@ function gen () {
     let  output = document.querySelector('#output');
     let  newElement = document.createElement("div");
 
-    data.forEach((item) => {
-        if (input.value != '') {
-                item = item.toLowerCase();
-                newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item}"/>`)
-                output.appendChild(newElement)
-                newElement.setAttribute('class', 'pages')         
-        }
-    });
+    if (input.value != '') {
+        data.forEach((item) => {
+                    item = item.toLowerCase();
+                    newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item}"/>`)
+                    output.appendChild(newElement)
+                    newElement.setAttribute('class', 'pages')         
+            
+        });
+    }
     let child = newElement.childNodes
         child.forEach(function (item, index) {
             item= item.setAttributes({
@@ -113,16 +114,18 @@ function gen () {
         });
     
 //learn more
-if (input2.value != '') {
     let  input2 = document.querySelector('#input2');
     let  data2 = input2.value.replace(/(\r\n|\n|\r)/gm,", ").split("\n");
     let  output2 = document.querySelector('#output2');
     let  newElement2 = document.createElement("p");
-    data2.forEach((item) => {
-        item = item.toLowerCase();
-        newElement2.append(item)
-        output2.appendChild(newElement2);
-    });
+
+    if (input2.value != '') {
+        data2.forEach((item) => {
+            item = item.toLowerCase();
+            newElement2.append(item)
+            output2.appendChild(newElement2);
+        });
+    }
     newElement2.prepend('<meta name="keywords" content="');
     newElement2.append('"/>');
     newElement2.setAttributes({
@@ -130,7 +133,7 @@ if (input2.value != '') {
         "class": "pages",
         "onClick": "selectAll(this.id)"
     });    
-    }
+    
 }
 
 // ==================================================
@@ -179,8 +182,8 @@ function cnvrt () {
 // ====================================
      // clear button
 function clearItem () {
-            let toRemov = document.querySelector('.pages')
-            toRemov.parentNode.removeChild(toRemov);
+        let toRemov = document.querySelector('.pages')
+        toRemov.parentNode.removeChild(toRemov);
 }
 function clearItem2 () {
     let toRemov = document.querySelector('.phrse')
@@ -223,3 +226,10 @@ function clearItem2 () {
                 }
             }
         };
+//=========================================
+    //Error Message
+window.onerror = function () {
+    let message = "Remove Extra Spaces, Field Cannot Be Blank!!\nNothing to Clear!!";
+    alert(message);
+    return true;
+};
