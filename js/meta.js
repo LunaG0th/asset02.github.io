@@ -1,6 +1,7 @@
 // ===============================================
 // Phase 1 Tools
 function genKey () {
+    //city input
     let ph1cty = document.querySelector('#ph1cty');
     let ctyArr = ph1cty.value.replace(/\r\n/g,"\n").split("\n");
         ctyArr.forEach((item) => {
@@ -10,17 +11,22 @@ function genKey () {
             }
             city = word.join(" ")
         });
-
+    // state input
     let ph1ste = document.querySelector('#ph1ste');
     let steArr = ph1ste.value.replace(/\r\n/g,"\n").split("\n");
         steArr.forEach((item) => {
-            let word = item.toLowerCase().split(" ");
-            for (let i = 0; i < word.length; i++) {
-            word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
+            let abbr = item.length //check state abbreviation if more than 3 character
+            if (abbr <= 3) {
+                state = item.toUpperCase();
+            } else {
+                let word = item.toLowerCase().split(" ");
+                for (let i = 0; i < word.length; i++) {
+                    word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
+                    }
+                    state = word.join(" ")
             }
-            state = word.join(" ")
         });
-
+    // business name input
     let ph1bns = document.querySelector('#ph1bns');
     let bnsArr = ph1bns.value.replace(/\r\n/g,"\n").split("\n");
         bnsArr.forEach((item) => {
@@ -30,19 +36,21 @@ function genKey () {
             }
             business = word.join(" ")
         });
-
+    // variable concatenation
     let info = `| ${city} ${state} | ${business}`;
     let link = `${city} ${state}`;
-    link = link.toLowerCase().trim().split(/\s+/).join('-')
-   
+        link = link.toLowerCase().trim().split(/\s+/).join('-')
+    
+    // keyword input
     let ph1kws = document.querySelector('#ph1kws');
     let wordArr = ph1kws.value.replace(/\r\n/g,"\n").split("\n");
 
+    // node creation
     let getTag = document.querySelector('#seoValue');
     let newTag = document.createElement('div');
-
+    
+    // argument or condition 
     if (ph1kws.value != '') {
-
         wordArr.forEach((item, index) => {
             let word = item.toLowerCase().split(" ");
             for (let i = 0; i < word.length; i++) {
@@ -57,6 +65,7 @@ function genKey () {
             newTag.appendChild(document.createElement("br"))
             
         });
+        // select when clicked
         let child = newTag.childNodes
         child.forEach(function (item, index) {
             item= item.setAttributes({
@@ -65,24 +74,9 @@ function genKey () {
             });
         });
         getTag.appendChild(newTag)
-
-
-
-
-    } //end of if condition
-
-
-    
+        newTag.setAttribute('class', 'pages')
+    } //end of if condition  
 }
-
-
-
-
-
-
-
-
-
 
 // ============================================
 // Phase 2 Tools
@@ -120,8 +114,6 @@ if (input2.value != '') {
         newElement2.append(item)
         output2.appendChild(newElement2);
     });
-        
-    
     newElement2.prepend('<meta name="keywords" content="');
     newElement2.append('"/>');
     newElement2.setAttributes({
