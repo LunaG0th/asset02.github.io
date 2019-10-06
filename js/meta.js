@@ -1,3 +1,91 @@
+// ===============================================
+// Phase 1 Tools
+function genKey () {
+    let ph1cty = document.querySelector('#ph1cty');
+    let ctyArr = ph1cty.value.replace(/\r\n/g,"\n").split("\n");
+        ctyArr.forEach((item) => {
+            let word = item.toLowerCase().split(" ");
+            for (let i = 0; i < word.length; i++) {
+            word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
+            }
+            city = word.join(" ")
+        });
+
+    let ph1ste = document.querySelector('#ph1ste');
+    let steArr = ph1ste.value.replace(/\r\n/g,"\n").split("\n");
+        steArr.forEach((item) => {
+            let word = item.toLowerCase().split(" ");
+            for (let i = 0; i < word.length; i++) {
+            word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
+            }
+            state = word.join(" ")
+        });
+
+    let ph1bns = document.querySelector('#ph1bns');
+    let bnsArr = ph1bns.value.replace(/\r\n/g,"\n").split("\n");
+        bnsArr.forEach((item) => {
+            let word = item.toLowerCase().split(" ");
+            for (let i = 0; i < word.length; i++) {
+            word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
+            }
+            business = word.join(" ")
+        });
+
+    let info = `| ${city} ${state} | ${business}`;
+    let link = `${city} ${state}`;
+    link = link.toLowerCase().trim().split(/\s+/).join('-')
+   
+    let ph1kws = document.querySelector('#ph1kws');
+    let wordArr = ph1kws.value.replace(/\r\n/g,"\n").split("\n");
+
+    let getTag = document.querySelector('#seoValue');
+    let newTag = document.createElement('div');
+
+    if (ph1kws.value != '') {
+
+        wordArr.forEach((item, index) => {
+            let word = item.toLowerCase().split(" ");
+            for (let i = 0; i < word.length; i++) {
+            word[i] = word[i][0].toUpperCase() + word[i].slice(1);  
+            }
+            let keyword = word.join(" ")
+            let keylink = keyword.toLowerCase().trim().split(/\s+/).join('-')
+            newTag.appendChild(document.createElement("span")).append(`keyword ${index + 1}`);
+            newTag.appendChild(document.createElement("p")).append(`${keyword} ${info}`) ;
+            newTag.appendChild(document.createElement("p")).append(`${keyword} In ${city}, ${state}.`);
+            newTag.appendChild(document.createElement("p")).append(`${keylink}-${link}`);
+            newTag.appendChild(document.createElement("br"))
+            
+        });
+        let child = newTag.childNodes
+        child.forEach(function (item, index) {
+            item= item.setAttributes({
+                "id": "pr" + `${index}`,
+                "onClick": "selectAll(this.id)"
+            });
+        });
+        getTag.appendChild(newTag)
+
+
+
+
+    } //end of if condition
+
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+// ============================================
+// Phase 2 Tools
 function gen () {
 // pages
     let  input = document.querySelector('#input');
@@ -74,7 +162,7 @@ function cnvrt () {
         });
     } else if (caseSelect == "tleCase") {
             keyArr.forEach((str) => {
-               let words = str = str.toLowerCase().split(" ");
+               let words = str.toLowerCase().split(" ");
                 for (let i = 0; i < words.length; i++) {
                     words[i] = words[i][0].toUpperCase() + words[i].slice(1);
                 }
