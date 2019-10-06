@@ -11,7 +11,7 @@
 <body>
 <header>
         <a class="btn btn-warning m-2" href="index.html">Back to home</a>
-    <h1>Header</h1>
+    <h1>Phase 1</h1>
 </header>
     <main>
         <div class="container">
@@ -25,7 +25,7 @@
                         <input class="form-control mb-2" id="ph1bns" rows="4" placeholder="Business Name"></input>
                     </br>
                         <h6>keywords</h6>
-                        <textarea class="form-control" id="ph1kws" rows="4" placeholder="Paste keywords here!!"></textarea>
+                        <textarea class="form-control" id="ph1kws" rows="4" placeholder="Place keywords here!!"></textarea>
                         <br /><button type="button" class="btn btn-success mt-3" onclick="genKey()" id="genKy">GENERATE</button> <button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem()">CLEAR ITEM</button>
                      </form>
                 </div>
@@ -41,11 +41,13 @@
                 <div class="row">
                     <div class="col-8 offset-4">
                         <h6>Character Counter</h6>
-                        <span style="height: 100%; word-wrap: break-word;" id="charcount" class="form-control" ></span><br>
+                        <textarea style="height: 100%; word-wrap: break-word;" id="charcount" class="form-control" rows="4"></textarea>
+                        <h6 id="cnt_msg"></h6>
+                        <br>
                     </div>
                 </div>
         </div>
-        <br>
+        <br><br>
         <!-- case converter -->
         <div class="container mt-3">
             <div class="row">

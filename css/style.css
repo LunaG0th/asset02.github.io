@@ -1,5 +1,11 @@
+body {
+  background-color: #302a26;
+  color: azure;
+}
+
 header, footer {
   background-color: #251d18;
+  padding: 5px;
 }
 header h1, footer h1 {
   text-align: center;
@@ -30,6 +36,10 @@ main div.select {
 
 p {
   margin-bottom: 0;
+}
+
+span {
+  color: #dd4c4c;
 }
 
 /*# sourceMappingURL=style.css.map */

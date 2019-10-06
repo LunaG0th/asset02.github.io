@@ -77,6 +77,15 @@ function genKey () {
         newTag.setAttribute('class', 'pages')
     } //end of if condition  
 }
+//============================================
+// character counter
+let mxChar = 150;
+$('#cnt_msg').html(mxChar + ' remaining');
+$('#charcount').keyup(function() {
+  let text_length = $('#charcount').val().length;
+  let text_remaining = mxChar - text_length;
+  $('#cnt_msg').html(text_remaining + ' remaining');
+});
 
 // ============================================
 // Phase 2 Tools
