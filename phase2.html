@@ -23,8 +23,9 @@
                     </br>
                         <h6>Learn More</h6>
                         <textarea class="form-control" id="input2" rows="6" placeholder="one keyword per line eq:&#10;keyword 01&#10;keyword 02&#10;keyword 03&#10;etc.."></textarea>
-                        <br /><button type="button" class="btn btn-success mt-3" onclick="gen()" id="btnrmv01">GENERATE</button> <button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem()">CLEAR ITEM</button>
+                        <br /><button type="button" class="btn btn-success mt-3" onclick="gen()" id="btnrmv01">GENERATE</button> <button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem()">CLEAR RESULT</button>
                      </form>
+                     <button type="button"  class="btn btn-warning mt-3"  onclick="window.location.reload()">CLEAR ALL</button>
                 </div>
                 <div class="col-8">
                     <h6>Pages</h6>
@@ -51,11 +52,11 @@
                         <h6>Enter Phrases Here</h6>
                         <textarea class="form-control" id="key" rows="3"></textarea>
                         <br />
-                        <select name="optn" id="optn">
+                        <select name="optn" id="optn" >
                             <option value="default">Case Select</option>
-                            <option value="lwrCase">To lower case</option>
-                            <option value="uprCase">To upper case</option>
-                            <option value="tleCase">To title case</option>
+                            <option value="lwrCase">To Lower Case</option>
+                            <option value="uprCase">To Upper Case</option>
+                            <option value="tleCase">To Title Case</option>
                         </select>
                         <br/>
                         <button type="button"  class="btn btn-success mt-3" onclick="cnvrt()">CONVERT</button><button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem2()" id="btnrmv02">CLEAR ITEM</button>

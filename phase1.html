@@ -20,14 +20,18 @@
                     <!--Data Input -->
                     <form >
                         <h6>Info</h6>
-                        <input class="form-control mb-2" id="ph1cty" rows="4" placeholder="City"></input>
-                        <input class="form-control mb-2" id="ph1ste" rows="4" placeholder="State"></input>
-                        <input class="form-control mb-2" id="ph1bns" rows="4" placeholder="Business Name"></input>
+                        <small>City</small>
+                        <input class="form-control mb-2" id="ph1cty" rows="4" data-toggle="tooltip" data-placement="right" title="Enter City"></input>
+                        <small>State Abbreviation</small>
+                        <input class="form-control mb-2" id="ph1ste" rows="4" data-toggle="tooltip" data-placement="right" title="Enter State abbreviation"></input>
+                        <small>Business name</small>
+                        <input class="form-control mb-2" id="ph1bns" rows="4" data-toggle="tooltip" data-placement="right" title="Enter Business Name"></input>
                     </br>
                         <h6>Keywords</h6>
                         <textarea class="form-control" id="ph1kws" rows="6" placeholder="one keyword per line eq:&#10;keyword 01&#10;keyword 02&#10;keyword 03&#10;etc.."></textarea>
-                        <br /><button type="button" class="btn btn-success mt-3" onclick="genKey()" id="genKy">GENERATE</button> <button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem()">CLEAR ITEM</button>
+                        <br /><button type="button" class="btn btn-success mt-3" onclick="genKey()" id="genKy">GENERATE</button> <button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem()">CLEAR RESULT</button>
                      </form>
+                     <button type="button"  class="btn btn-warning mt-3"  onclick="window.location.reload()">CLEAR ALL</button>
                 </div>
                 <!-- Output Result -->
                 <div class="col-8">
@@ -37,17 +41,6 @@
             </div>
         </div>
         <br>
-        <div class="container mt-3">
-                <div class="row">
-                    <div class="col-8 offset-4">
-                        <h6>Character Counter</h6>
-                        <textarea style="height: 100%; word-wrap: break-word;" id="charcount" class="form-control" rows="4"></textarea>
-                        <h6 id="cnt_msg"></h6>
-                        <br>
-                    </div>
-                </div>
-        </div>
-        <br><br>
         <!-- case converter -->
         <div class="container mt-3">
             <div class="row">
@@ -58,9 +51,9 @@
                         <br />
                         <select name="optn" id="optn">
                             <option value="default">Case Select</option>
-                            <option value="lwrCase">To lower case</option>
-                            <option value="uprCase">To upper case</option>
-                            <option value="tleCase">To title case</option>
+                            <option value="lwrCase">To Lower Case</option>
+                            <option value="uprCase">To Upper Case</option>
+                            <option value="tleCase">To Title Case</option>
                         </select>
                         <br/>
                         <button type="button"  class="btn btn-success mt-3" onclick="cnvrt()">CONVERT</button><button type="button"  class="btn btn-danger ml-3 mt-3" onclick="clearItem2()" id="btnrmv02">CLEAR ITEM</button>
@@ -70,12 +63,21 @@
                     <h6>Result</h6>
                     <span style="height: 100%; word-wrap: break-word;" id="outputKey" class="form-control"></span>
                     <br>
-                   
                 </div>
-               
             </div>
         </div>
-        
+        <!-- Character Counter -->
+        <br>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-8 offset-4">
+                    <h6>Character Counter</h6>
+                    <textarea style="height: 100%; word-wrap: break-word;" id="charcount" class="form-control" rows="4"></textarea>
+                    <h6 id="cnt_msg"></h6>
+                    <br>
+                </div>
+            </div>
+    </div>
     </main>
     
 

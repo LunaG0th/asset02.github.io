@@ -139,45 +139,62 @@ function gen () {
 // ==================================================
     // case converter
 function cnvrt () {
+    
     let inputKey = document.querySelector('#key');
     let keyArr = key.value.replace(/\r\n/g,"\n").split("\n");
     // console.log(keyArr);
     let outputKey = document.querySelector('#outputKey');
-    let = newElem = document.createElement("p");
+    let = newElem = document.createElement("div");
     let caseSelect = document.querySelector('#optn').value
     
     if (caseSelect == "lwrCase") {
         keyArr.forEach((str) => {
             str= str.toLowerCase();
-            newElem.append(`${str} `);
+            newElem.appendChild(document.createElement("p")).append(`${str} `);
             outputKey.appendChild(newElem);
-            newElem.appendChild(document.createElement("br"))
-            newElem.setAttribute('class', 'phrse')
-            
+            newElem.setAttribute('class', 'phrse')  
         });
-
+        let child = newElem.childNodes
+        child.forEach(function (item, index) {
+            item= item.setAttributes({
+                "id": "lwrCse" + `${index}`,
+                "onClick": "selectAll(this.id)"
+            });
+        });
     } else if (caseSelect == "uprCase") {
         keyArr.forEach((str) => {
             str= str.toUpperCase();
-            newElem.append(`${str} `);
+            newElem.appendChild(document.createElement("p")).append(`${str} `);
             outputKey.appendChild(newElem);
-            newElem.appendChild(document.createElement("br"))
             newElem.setAttribute('class', 'phrse')
+        });
+        let child = newElem.childNodes
+        child.forEach(function (item, index) {
+            item= item.setAttributes({
+                "id": "uprCse" + `${index}`,
+                "onClick": "selectAll(this.id)"
+            });
         });
     } else if (caseSelect == "tleCase") {
             keyArr.forEach((str) => {
                let words = str.toLowerCase().split(" ");
                 for (let i = 0; i < words.length; i++) {
                     words[i] = words[i][0].toUpperCase() + words[i].slice(1);
-                }
-                
-                newElem.append(words.join(" "));
+                } 
+                newElem.appendChild(document.createElement("p")).append(words.join(" "));
                 outputKey.appendChild(newElem);
-                newElem.appendChild(document.createElement("br"))
                 newElem.setAttribute('class', 'phrse')
                 
             });
-    }
+            let child = newElem.childNodes
+            child.forEach(function (item, index) {
+                item= item.setAttributes({
+                    "id": "tlecse" + `${index}`,
+                    "onClick": "selectAll(this.id)"
+                });
+            });
+    } //end if
+
 }
 // ====================================
      // clear button
