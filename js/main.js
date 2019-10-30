@@ -98,12 +98,23 @@ function gen () {
 
     if (input.value != '') {
         data.forEach((item) => {
-                    item = item.toLowerCase();
-                    newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item}"/>`)
-                    output.appendChild(newElement)
-                    newElement.setAttribute('class', 'pages')         
+            item = item.toLowerCase().split(" ");
+            for (let i = 0; i < item.length; i++){
+                item[i] =item[i][0].toUpperCase() + item[i].slice(1);
+            }
+            newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item.join(" ")}"/>`)
+            output.appendChild(newElement)
+            newElement.setAttribute('class', 'pages')         
+});
+// lowercase version
+        // data.forEach((item) => {
+        //             item = item.toLowerCase();
+        //             console.log(item)
+        //             newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item}"/>`)
+        //             output.appendChild(newElement)
+        //             newElement.setAttribute('class', 'pages')         
             
-        });
+        // });
     }
     let child = newElement.childNodes
         child.forEach(function (item, index) {
@@ -121,8 +132,11 @@ function gen () {
 
     if (input2.value != '') {
         data2.forEach((item) => {
-            item = item.toLowerCase();
-            newElement2.append(item)
+            item = item.toLowerCase().split(" ");
+            for (let i = 0; i < item.length; i++){
+                item[i] =item[i][0].toUpperCase() + item[i].slice(1);
+            }
+            newElement2.append(item.join(" "))
             output2.appendChild(newElement2);
         });
     }
