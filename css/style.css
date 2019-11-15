@@ -43,16 +43,3 @@ span {
 }
 
 /*# sourceMappingURL=style.css.map */
-email mo dito: brasa_mahilson@yahoo.com
-tpos cc mo itong dalawa
-Mhae Hibay <mhibay.mahilson@yahoo.com>,
-Malou Almasol <malmasol.mahilson@yahoo.com>
-  
-Darren Alban 10:24 PM
-var i;
-var x = document.getElementsByClassName("menu-item-title-name");
-var arr = [];
-for (i = 0; i < x.length; i++) {
-   arr.push(x[i].innerText);
-}
-console.log(arr.join("\n"));
