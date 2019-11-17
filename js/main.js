@@ -61,7 +61,7 @@ function genKey () {
             newTag.appendChild(document.createElement("span")).append(`keyword ${index + 1}`);
             newTag.appendChild(document.createElement("p")).append(`${keyword} ${info}`) ;
             newTag.appendChild(document.createElement("p")).append(`${keyword} In ${city}, ${state}.`);
-            newTag.appendChild(document.createElement("p")).append(`${keylink}-${link}`);
+            //newTag.appendChild(document.createElement("p")).append(`${keylink}-${link}`);
             newTag.appendChild(document.createElement("p")).append(`${keylink}`);
             newTag.appendChild(document.createElement("br"))
             
