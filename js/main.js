@@ -38,8 +38,8 @@ function genKey () {
         });
     // variable concatenation
     let info = `| ${city} ${state} | ${business}`;
-    let link = `${city} ${state}`;
-        link = link.toLowerCase().trim().split(/\s+/).join('-')
+    //let link = `${city} ${state}`;
+       // link = link.toLowerCase().trim().split(/\s+/).join('-')
     
     // keyword input
     let ph1kws = document.querySelector('#ph1kws');
@@ -62,6 +62,7 @@ function genKey () {
             newTag.appendChild(document.createElement("p")).append(`${keyword} ${info}`) ;
             newTag.appendChild(document.createElement("p")).append(`${keyword} In ${city}, ${state}.`);
             newTag.appendChild(document.createElement("p")).append(`${keylink}-${link}`);
+            newTag.appendChild(document.createElement("p")).append(`${keylink}`);
             newTag.appendChild(document.createElement("br"))
             
         });
