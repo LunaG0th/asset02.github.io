@@ -44,7 +44,7 @@ function genKey () {
     // keyword input
     let ph1kws = document.querySelector('#ph1kws');
     let wordArr = ph1kws.value.replace(/\r\n/g,"\n").split("\n");
-
+        
     // node creation
     let getTag = document.querySelector('#seoValue');
     let newTag = document.createElement('div');
@@ -61,11 +61,12 @@ function genKey () {
             newTag.appendChild(document.createElement("span")).append(`keyword ${index + 1}`);
             newTag.appendChild(document.createElement("p")).append(`${keyword} ${info}`) ;
             newTag.appendChild(document.createElement("p")).append(`${keyword} In ${city}, ${state}.`);
-            //newTag.appendChild(document.createElement("p")).append(`${keylink}-${link}`);
             newTag.appendChild(document.createElement("p")).append(`${keylink}`);
+            //newTag.appendChild(document.createElement("p")).append(`${keylink}-${link}`);
             newTag.appendChild(document.createElement("br"))
             
         });
+        
         // select when clicked
         let child = newTag.childNodes
         child.forEach(function (item, index) {
@@ -92,31 +93,47 @@ $('#charcount').keyup(function() {
 // Phase 2 Tools
 function gen () {
 // pages
+    //let re = /\s*(?:;|$)\s*/
     let  input = document.querySelector('#input');
-    let  data = input.value.replace(/\r\n/g,"\n").split("\n");
+    let data = input.value.replace(/\r\n/g,"\n").split("\n");
+    //console.log(data);
+    
     let  output = document.querySelector('#output');
     let  newElement = document.createElement("div");
 
-    if (input.value != '') {
+    //if (input.value != '') {
+       
         data.forEach((item) => {
-            item = item.toLowerCase().split(" ");
-            for (let i = 0; i < item.length; i++){
-                item[i] =item[i][0].toUpperCase() + item[i].slice(1);
-            }
-            newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item.join(" ")}"/>`)
-            output.appendChild(newElement)
-            newElement.setAttribute('class', 'pages')         
-});
-// lowercase version
-        // data.forEach((item) => {
-        //             item = item.toLowerCase();
-        //             console.log(item)
-        //             newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item}"/>`)
-        //             output.appendChild(newElement)
-        //             newElement.setAttribute('class', 'pages')         
-            
-        // });
-    }
+            let items = item.toLowerCase().split(" ");
+            function checkValue(items) {
+                return items !== "keyword";
+              }
+              let elem = items.filter(checkValue)
+              let arr = [elem.join(" ")]
+
+              for (let i = 0; i < arr.length; i++) {
+                  let value = arr[i] = arr[i].split("");
+
+                  do {
+                    value.splice(i, 1); 
+                  } while (value[i] >= 0);
+
+                    dta = value.join("")  
+              }
+              let keyItem = [dta]
+              keyItem.forEach((item) => {
+                item = item.toLowerCase().split(" ");
+                for (let i = 0; i < item.length; i++){
+                    item[i] =item[i][0].toUpperCase() + item[i].slice(1);
+                }
+                newElement.appendChild(document.createElement("p")).append(`<meta name="keywords" content="${item.join(" ")}"/>`)
+                output.appendChild(newElement)
+                newElement.setAttribute('class', 'pages')  
+            });
+              
+         });
+
+    //}
     let child = newElement.childNodes
         child.forEach(function (item, index) {
             item= item.setAttributes({
@@ -133,11 +150,8 @@ function gen () {
 
     if (input2.value != '') {
         data2.forEach((item) => {
-            item = item.toLowerCase().split(" ");
-            for (let i = 0; i < item.length; i++){
-                item[i] =item[i][0].toUpperCase() + item[i].slice(1);
-            }
-            newElement2.append(item.join(" "))
+            item = item.toLowerCase();
+            newElement2.append(item)
             output2.appendChild(newElement2);
         });
     }
